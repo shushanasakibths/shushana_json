@@ -12,6 +12,13 @@ async function getComments() {
     return comments;
 }
 
+async function getQuestions() {
+    let response = await fetch('https://jsonplaceholder.typicode.com/posts/');
+    let questions = await response.json();
+    return questions;
+}
+
+
 Promise.all([getUsers(), getComments()])
     .then(([users, comments]) => {
         let commentsContainer = document.querySelector('.comment-list'); 
